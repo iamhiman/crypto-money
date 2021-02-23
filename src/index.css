@@ -7,8 +7,12 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 
+
+/* ==================================================
+                    Crypto Coin Table
+================================================== */
+
 .box {
-  /*border: 1px solid black;*/
   display: flex;
   flex-direction: column;
   overflow-x: scroll;
@@ -25,12 +29,11 @@
   text-align: center;
 }
 
-.head{
+.head {
   font-weight: bold;
 }
 
 .coin-id {
-  /*border: 1px solid red;*/
   flex: 1 0 30px;
   width: 30px;
   position: sticky;
@@ -41,7 +44,6 @@
 }
 
 .coin-main {
-  /*border: 1px solid red;*/
   flex: 1 0 180px;
   width: 180px;
   display: flex;
@@ -65,35 +67,34 @@
 }
 
 .coin-symbol {
-  /*border: 1px solid red;*/
   flex: 1 0 60px;
   width: 60px;
   overflow-wrap: break-word;
   padding: 10px 0;
 }
+
 .coin-price {
-  /*border: 1px solid red;*/
   flex: 1 0 140px;
   width: 140px;
   overflow-wrap: break-word;
   padding: 10px 0;
 }
+
 .coin-marketcap {
-  /*border: 1px solid red;*/
   flex: 1 0 180px;
   width: 180px;
   overflow-wrap: break-word;
   padding: 10px 0;
 }
+
 .coin-volume {
-  /*border: 1px solid red;*/
   flex: 1 0 180px;
   width: 180px;
   overflow-wrap: break-word;
   padding: 10px 0;
 }
+
 .coin-circulation {
-  /*border: 1px solid red;*/
   flex: 1 0 180px;
   width: 180px;
   overflow-wrap: break-word;
@@ -101,17 +102,81 @@
 }
 
 .coin-24h {
-  /*border: 1px solid red;*/
   flex: 1 0 120px;
   overflow-wrap: break-word;
   width: 120px;
   padding: 10px 0;
+  font-weight: bold;
 }
 
-.red{
+.red {
   color: red;
 }
 
-.green{
+.green {
   color: green;
+}
+
+
+/* ==================================================
+                    Pagination
+================================================== */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.page-link {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  border: 1px solid #000;
+  cursor: pointer;
+  color: #000;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+.page-link:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.active {
+  background-color: #000;
+  color: #fff;
+}
+
+.prev-btn,
+.next-btn {
+  margin-right: 5px;
+  border: 1px solid #000;
+  cursor: pointer;
+  color: #000;
+  width: 60px;
+  height: 30px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.prev-btn:hover:enabled,
+.next-btn:hover:enabled {
+  background-color: #000;
+  color: #fff;
+}
+
+button:disabled {
+  border: 1ps solid #666666;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
 }
