@@ -48,6 +48,8 @@ function App() {
   return (
     <>
       <section>
+        <h1 className="title-heading"> Know all about Top 100 Crypto Currencies in world according to their current Market Capital.</h1>
+        
         <div className="box">
           <div className="row">
             <p className="coin-id">#</p>
@@ -55,9 +57,28 @@ function App() {
             <p className="coin-symbol head">Symbol</p>
             <p className="coin-price head">Price</p>
             <p className="coin-24h head">Change in 24H</p>
-            <p className="coin-marketcap head">Market Cap</p>
-            <p className="coin-volume head">Volume</p>
-            <p className="coin-circulation head">Circulation</p>
+            
+            <div className="coin-marketcap-head">
+              <p>Market Cap </p>
+              <p className="marketcap-tooltip"> &#9432;
+            	  <span className="marketcap-tooltiptext">The total market value of a cryptocurrency's circulating supply. It is analogous to the free-float capitalization in the stock market. <br /><br />
+                Market Cap = Current Price x Circulating Supply.</span>
+              </p>
+            </div>
+
+            <div className="coin-volume-head">
+              <p>Volume </p>
+              <p className="volume-tooltip"> &#9432;
+            	  <span className="volume-tooltiptext">A measure of how much of a cryptocurrency was traded in the last 24 hours.</span>
+              </p>
+            </div>
+
+            <div className="coin-circulation-head">
+              <p>Circulating Supply </p>
+              <p className="circulation-tooltip"> &#9432;
+            	  <span className="circulation-tooltiptext">The amount of coins that are circulating in the market and are in public hands. It is analogous to the flowing shares in the stock market.</span>
+              </p>
+            </div>
           </div>
 
           {currentRows.map((item, index) => {

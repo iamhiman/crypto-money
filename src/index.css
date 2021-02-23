@@ -1,4 +1,6 @@
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -12,6 +14,12 @@
                     Crypto Coin Table
 ================================================== */
 
+.title-heading {
+  text-align: center;
+  padding: 20px 10px 20px 10px;
+  margin: 0 10px;
+}
+
 .box {
   display: flex;
   flex-direction: column;
@@ -19,10 +27,10 @@
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  padding: 0px 10px 10px 10px;
 }
 
 .row {
-  border-bottom: 2px solid blue;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,6 +49,8 @@
   background-color: white;
   padding: 10px 0;
   font-weight: bold;
+  border-bottom: 2px solid red;
+  align-self: flex-end;
 }
 
 .coin-main {
@@ -53,17 +63,21 @@
   align-items: center;
   justify-content: center;
   padding: 10px 0;
+  border-bottom: 2px solid red;
+  align-self: flex-end;
 }
 
 .coin-main img {
   width: 30px;
   height: 30px;
+  align-self: flex-end;
 }
 
 .coin-name {
   width: 150px;
   overflow-wrap: break-word;
   text-transform: uppercase;
+  align-self: flex-end;
 }
 
 .coin-symbol {
@@ -71,6 +85,8 @@
   width: 60px;
   overflow-wrap: break-word;
   padding: 10px 0;
+  border-bottom: 2px solid red;
+  align-self: flex-end;
 }
 
 .coin-price {
@@ -78,6 +94,8 @@
   width: 140px;
   overflow-wrap: break-word;
   padding: 10px 0;
+  border-bottom: 2px solid red;
+  align-self: flex-end;
 }
 
 .coin-marketcap {
@@ -85,6 +103,8 @@
   width: 180px;
   overflow-wrap: break-word;
   padding: 10px 0;
+  border-bottom: 2px solid red;
+  align-self: flex-end;
 }
 
 .coin-volume {
@@ -92,6 +112,8 @@
   width: 180px;
   overflow-wrap: break-word;
   padding: 10px 0;
+  border-bottom: 2px solid red;
+  align-self: flex-end;
 }
 
 .coin-circulation {
@@ -99,6 +121,8 @@
   width: 180px;
   overflow-wrap: break-word;
   padding: 10px 0;
+  border-bottom: 2px solid red;
+  align-self: flex-end;
 }
 
 .coin-24h {
@@ -107,6 +131,8 @@
   width: 120px;
   padding: 10px 0;
   font-weight: bold;
+  border-bottom: 2px solid red;
+  align-self: flex-end;
 }
 
 .red {
@@ -132,7 +158,6 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
-  margin-top: 20px;
 }
 
 .page-link {
@@ -179,4 +204,81 @@ button:disabled {
   background-color: #cccccc;
   color: #666666;
   cursor: not-allowed;
+}
+
+
+/* ==================================================
+  ToolTip (Market Cap, Volume, Circulating Supply)
+================================================== */
+
+.coin-marketcap-head,
+.coin-volume-head,
+.coin-circulation-head {
+  flex: 1 0 180px;
+  width: 180px;
+  overflow-wrap: break-word;
+  padding: 10px 0;
+  border-bottom: 2px solid red;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}
+
+.coin-marketcap-head p,
+.coin-volume-head p,
+.coin-circulation-head p {
+  align-self: flex-end;
+  margin-right: 5px;
+}
+
+.marketcap-tooltip,
+.volume-tooltip,
+.circulation-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.marketcap-tooltip .marketcap-tooltiptext,
+.volume-tooltip .volume-tooltiptext,
+.circulation-tooltip .circulation-tooltiptext {
+  visibility: hidden;
+  width: 250px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+  top: 150%;
+  left: 50%;
+  margin-left: -150px;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.circulation-tooltip .circulation-tooltiptext {
+  width: 215px;
+  margin-left: -200px;
+}
+
+.marketcap-tooltip .marketcap-tooltiptext::after,
+.volume-tooltip .volume-tooltiptext::after,
+.circulation-tooltip .circulation-tooltiptext::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent black transparent;
+}
+
+.marketcap-tooltip:hover .marketcap-tooltiptext,
+.volume-tooltip:hover .volume-tooltiptext,
+.circulation-tooltip:hover .circulation-tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }
