@@ -21,20 +21,36 @@
 }
 
 .box {
-  display: flex;
-  flex-direction: column;
-  overflow-x: scroll;
-  max-width: 1200px;
+  overflow-x: auto;
+  max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
   padding: 0px 10px 10px 10px;
 }
 
-.row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
   text-align: center;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+th {
+  background-color: #eaeaea;
+  color: #000;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
 }
 
 .head {
@@ -42,97 +58,54 @@
 }
 
 .coin-id {
-  flex: 1 0 30px;
-  width: 30px;
-  position: sticky;
-  left: 0;
-  background-color: white;
-  padding: 10px 0;
+  padding: 10px;
   font-weight: bold;
   border-bottom: 2px solid red;
-  align-self: flex-end;
 }
 
-.coin-main {
-  flex: 1 0 180px;
-  width: 180px;
-  display: flex;
-  position: sticky;
-  left: 30px;
-  background-color: white;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 0;
+.coin-img{
   border-bottom: 2px solid red;
-  align-self: flex-end;
 }
 
-.coin-main img {
+.coin-img img{
   width: 30px;
-  height: 30px;
-  align-self: flex-end;
 }
 
 .coin-name {
-  width: 150px;
   overflow-wrap: break-word;
   text-transform: uppercase;
-  align-self: flex-end;
+  border-bottom: 2px solid red;
 }
 
 .coin-symbol {
-  flex: 1 0 60px;
-  width: 60px;
   overflow-wrap: break-word;
-  padding: 10px 0;
   border-bottom: 2px solid red;
-  align-self: flex-end;
 }
 
 .coin-price {
-  flex: 1 0 140px;
-  width: 140px;
   overflow-wrap: break-word;
-  padding: 10px 0;
   border-bottom: 2px solid red;
-  align-self: flex-end;
 }
 
 .coin-marketcap {
-  flex: 1 0 180px;
-  width: 180px;
   overflow-wrap: break-word;
-  padding: 10px 0;
   border-bottom: 2px solid red;
-  align-self: flex-end;
 }
 
 .coin-volume {
-  flex: 1 0 180px;
-  width: 180px;
   overflow-wrap: break-word;
-  padding: 10px 0;
   border-bottom: 2px solid red;
-  align-self: flex-end;
 }
 
 .coin-circulation {
-  flex: 1 0 180px;
-  width: 180px;
   overflow-wrap: break-word;
-  padding: 10px 0;
   border-bottom: 2px solid red;
-  align-self: flex-end;
 }
 
 .coin-24h {
-  flex: 1 0 120px;
   overflow-wrap: break-word;
-  width: 120px;
-  padding: 10px 0;
   font-weight: bold;
   border-bottom: 2px solid red;
-  align-self: flex-end;
 }
 
 .red {
@@ -155,9 +128,7 @@
   max-width: 800px;
   flex-wrap: wrap;
   flex-direction: row;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 20px;
+  margin: 20px auto 20px auto;
 }
 
 .page-link {
@@ -200,7 +171,7 @@
 }
 
 button:disabled {
-  border: 1ps solid #666666;
+  border: 1px solid #666666;
   background-color: #cccccc;
   color: #666666;
   cursor: not-allowed;
@@ -214,21 +185,9 @@ button:disabled {
 .coin-marketcap-head,
 .coin-volume-head,
 .coin-circulation-head {
-  flex: 1 0 180px;
-  width: 180px;
   overflow-wrap: break-word;
-  padding: 10px 0;
   border-bottom: 2px solid red;
   font-weight: bold;
-  display: flex;
-  justify-content: center;
-}
-
-.coin-marketcap-head p,
-.coin-volume-head p,
-.coin-circulation-head p {
-  align-self: flex-end;
-  margin-right: 5px;
 }
 
 .marketcap-tooltip,
