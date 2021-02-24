@@ -115,7 +115,7 @@ function App() {
           maxPageNumLimit={maxPageNumLimit}
         />
 
-        <a href="" target="_blank" className="view-code">
+        <a href="https://github.com/iamhiman/crypto-money" target="_blank" className="view-code">
           <p> View code</p>
           <img src="https://img.icons8.com/fluent/100/000000/github.png" />
         </a>
