@@ -12,7 +12,7 @@ const CryptoCoin = (props) => {
 
         { props.perc24h < 0 ?
            (<td className='coin-24h red'>{props.perc24h.toFixed(2)}%</td>) : 
-           (<td className='coin-24h green'>{props.perc24h.toFixed(2)}%</td>)
+           (<td className='coin-24h green'>+{props.perc24h.toFixed(2)}%</td>)
         }
 
         <td className="coin-marketcap">${props.marketCap.toLocaleString()}</td>

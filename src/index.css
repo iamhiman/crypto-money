@@ -5,6 +5,11 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
+  
+}
+
+body{
+  background-color: #a5bacf;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
@@ -14,10 +19,21 @@
                     Crypto Coin Table
 ================================================== */
 
+h1 {
+  color: blue;
+  text-align: center;
+  padding: 10px 25px;
+  border: 2px solid blue;
+  border-radius: 30px;
+  width: max-content;
+  margin: 15px auto;
+}
+
 .title-heading {
   text-align: center;
   padding: 20px 10px 20px 10px;
   margin: 0 10px;
+  font-size: 22px;
 }
 
 .box {
@@ -36,21 +52,7 @@ table {
 th,
 td {
   text-align: center;
-  border: 1px solid #ddd;
   padding: 10px;
-}
-
-th {
-  background-color: #eaeaea;
-  color: #000;
-}
-
-tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-tr:hover {
-  background-color: #ddd;
 }
 
 .head {
@@ -72,40 +74,22 @@ tr:hover {
 }
 
 .coin-name {
-  overflow-wrap: break-word;
   text-transform: uppercase;
-  border-bottom: 2px solid red;
 }
 
-.coin-symbol {
-  overflow-wrap: break-word;
-  border-bottom: 2px solid red;
-}
-
-.coin-price {
-  overflow-wrap: break-word;
-  border-bottom: 2px solid red;
-}
-
-.coin-marketcap {
-  overflow-wrap: break-word;
-  border-bottom: 2px solid red;
-}
-
-.coin-volume {
-  overflow-wrap: break-word;
-  border-bottom: 2px solid red;
-}
-
-.coin-circulation {
+.coin-symbol,
+.coin-price,
+.coin-marketcap,
+.coin-volume,
+.coin-circulation,
+.coin-name,
+.coin-24h {
   overflow-wrap: break-word;
   border-bottom: 2px solid red;
 }
 
 .coin-24h {
-  overflow-wrap: break-word;
   font-weight: bold;
-  border-bottom: 2px solid red;
 }
 
 .red {
@@ -113,7 +97,7 @@ tr:hover {
 }
 
 .green {
-  color: green;
+  color: #006600;
 }
 
 
@@ -128,7 +112,7 @@ tr:hover {
   max-width: 800px;
   flex-wrap: wrap;
   flex-direction: row;
-  margin: 20px auto 20px auto;
+  margin: 20px auto 30px auto;
 }
 
 .page-link {
@@ -240,4 +224,27 @@ button:disabled {
 .circulation-tooltip:hover .circulation-tooltiptext {
   visibility: visible;
   opacity: 1;
+}
+
+
+/* ==================================================
+                View Code Card
+================================================== */
+
+.view-code
+{
+    width: 120px;
+    height: 40px;
+    background-color: black;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: #fff;
+    border-radius: 10px;
+    text-decoration: none;
+    margin: 0 auto 20px auto;
+}
+
+.view-code img{
+    width: 30px;
 }
