@@ -5,10 +5,9 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
-  
 }
 
-body{
+body {
   background-color: #a5bacf;
 }
 
@@ -57,6 +56,10 @@ td {
   padding: 10px;
 }
 
+.row {
+  height: 70px;
+}
+
 .head {
   font-weight: bold;
 }
@@ -67,11 +70,11 @@ td {
   border-bottom: 2px solid red;
 }
 
-.coin-img{
+.coin-img {
   border-bottom: 2px solid red;
 }
 
-.coin-img img{
+.coin-img img {
   width: 30px;
 }
 
@@ -239,23 +242,22 @@ button:disabled {
                 View Code Card
 ================================================== */
 
-.view-code
-{
-    width: 120px;
-    height: 40px;
-    background-color: black;
-    display: -webkit-box;
-    display: flex;
-    -webkit-box-pack: space-evenly;
-    justify-content: space-evenly;
-    -webkit-box-align: center;
-    align-items: center;
-    color: #fff;
-    border-radius: 10px;
-    text-decoration: none;
-    margin: 0 auto 20px auto;
+.view-code {
+  width: 120px;
+  height: 40px;
+  background-color: black;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+  justify-content: space-evenly;
+  -webkit-box-align: center;
+  align-items: center;
+  color: #fff;
+  border-radius: 10px;
+  text-decoration: none;
+  margin: 0 auto 20px auto;
 }
 
-.view-code img{
-    width: 30px;
+.view-code img {
+  width: 30px;
 }
