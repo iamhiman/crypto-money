@@ -1,6 +1,6 @@
 {
   "homepage": "https://crypto-money.netlify.app/",
-  "name": "crypto-tracker",
+  "name": "crypto-money",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
