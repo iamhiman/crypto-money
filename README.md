@@ -3,7 +3,7 @@
 <p align="center">
 	<img src="https://img.shields.io/badge/Platform-Web-brightgreen" alt="Platform-Web">
 	<img src="https://img.shields.io/badge/Repo%20Size-713%20kB-blue" alt="Repo-Size">
-  <img src="https://img.shields.io/badge/Tech%20Stack-React%20JS%2C%20JavaScript%2C%20CSS-red" alt="Tech-Stack">
+  	<img src="https://img.shields.io/badge/Tech%20Stack-React%20JS%2C%20CSS%2C%20CoinGecko%20API-red" alt="Tech-Stack">
 </p>
 <h2 align="center"><a href="https://crypto-money.netlify.app/"> Live Site </a></h2>
 
