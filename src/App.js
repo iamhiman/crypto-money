@@ -7,6 +7,7 @@ function App() {
   const [coins, setCoins] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage] = useState(10);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false")
@@ -26,6 +27,10 @@ function App() {
 
       <section>
         <p className="title-heading"> Know all about Top 100 Crypto Currencies in world according to their current Market Capital.</p>
+        <div className="search-box">
+          <input type="text" placeholder="Search Coin..." onChange={(e) => { setSearchText(e.target.value) }} />
+        </div>
+
         <div className="box">
           <table>
             <thead>
@@ -58,33 +63,62 @@ function App() {
               </tr>
             </thead>
             <tbody>
-              {currentRows.map((item, index) => {
-                return (
-                  <CryptoCoin
-                    key={((currentPage * 10) - 10) + index + 1}
-                    id={((currentPage * 10) - 10) + index + 1}
-                    image={item.image}
-                    name={item.name}
-                    symbol={item.symbol}
-                    price={item.current_price}
-                    perc24h={item.price_change_percentage_24h}
-                    marketCap={item.market_cap}
-                    volume={item.total_volume}
-                    circSupply={item.circulating_supply}
-                  />
-                );
-              })
+
+              {
+                searchText != "" ?
+                  (coins.map((item, index) => {
+                    if (item.name.toLowerCase().includes(searchText.toLowerCase())) {
+                      return (
+                        <CryptoCoin
+                          key={index + 1}
+                          id={index + 1}
+                          image={item.image}
+                          name={item.name}
+                          symbol={item.symbol}
+                          price={item.current_price}
+                          perc24h={item.price_change_percentage_24h}
+                          marketCap={item.market_cap}
+                          volume={item.total_volume}
+                          circSupply={item.circulating_supply}
+                        />
+                      );
+                    }
+                    else {
+                      return false;
+                    }
+                  })
+                  ) :
+                  (currentRows.map((item, index) => {
+                    return (
+                      <CryptoCoin
+                        key={((currentPage * 10) - 10) + index + 1}
+                        id={((currentPage * 10) - 10) + index + 1}
+                        image={item.image}
+                        name={item.name}
+                        symbol={item.symbol}
+                        price={item.current_price}
+                        perc24h={item.price_change_percentage_24h}
+                        marketCap={item.market_cap}
+                        volume={item.total_volume}
+                        circSupply={item.circulating_supply}
+                      />
+                    );
+                  })
+                  )
               }
             </tbody>
           </table>
         </div>
 
-        <Pagination
-          rowsPerPage={rowsPerPage}
-          totalRows={coins.length}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-        />
+        {
+          searchText == "" &&
+          <Pagination
+            rowsPerPage={rowsPerPage}
+            totalRows={coins.length}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+          />
+        }
 
         <a href="https://github.com/iamhiman/crypto-money" target="_blank" className="view-code">
           <p> View code</p>
