@@ -7,9 +7,6 @@ function App() {
   const [coins, setCoins] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage] = useState(10);
-  const [pageNumLimit] = useState(5);
-  const [maxPageNumLimit, setmaxPageNumLimit] = useState(5);
-  const [minPageNumLimit, setminPageNumLimit] = useState(0);
 
   useEffect(() => {
     axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false")
@@ -22,28 +19,6 @@ function App() {
   const indexOfLastRow = currentPage * rowsPerPage;
   const indexOfFirstRow = indexOfLastRow - rowsPerPage;
   const currentRows = coins.slice(indexOfFirstRow, indexOfLastRow);
-
-  const paginate = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  }
-
-  const nextBtn = () => {
-    setCurrentPage(currentPage + 1);
-
-    if (currentPage + 1 > maxPageNumLimit) {
-      setmaxPageNumLimit(maxPageNumLimit + pageNumLimit);
-      setminPageNumLimit(minPageNumLimit + pageNumLimit);
-    }
-  }
-
-  const prevBtn = () => {
-    setCurrentPage(currentPage - 1);
-
-    if ((currentPage - 1) % pageNumLimit == 0) {
-      setmaxPageNumLimit(maxPageNumLimit - pageNumLimit);
-      setminPageNumLimit(minPageNumLimit - pageNumLimit);
-    }
-  }
 
   return (
     <>
@@ -107,12 +82,8 @@ function App() {
         <Pagination
           rowsPerPage={rowsPerPage}
           totalRows={coins.length}
-          paginate={paginate}
           currentPage={currentPage}
-          nextBtn={nextBtn}
-          prevBtn={prevBtn}
-          minPageNumLimit={minPageNumLimit}
-          maxPageNumLimit={maxPageNumLimit}
+          setCurrentPage={setCurrentPage}
         />
 
         <a href="https://github.com/iamhiman/crypto-money" target="_blank" className="view-code">

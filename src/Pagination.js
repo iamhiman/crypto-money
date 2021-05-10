@@ -1,29 +1,57 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 const Pagination = (props) => {
-  const pageNums = [];
-  const [activeBtnColor, setActiveBtnColor] = useState(0);
+  const {totalRows, rowsPerPage, currentPage, setCurrentPage} = props;
 
-  for (let i = 1; i <= Math.ceil(props.totalRows / props.rowsPerPage); i++) {
+  const pageNums = [];
+
+  const [activeBtnColor, setActiveBtnColor] = useState(0);
+  const [pageNumLimit] = useState(5);
+  const [maxPageNumLimit, setmaxPageNumLimit] = useState(5);
+  const [minPageNumLimit, setminPageNumLimit] = useState(0);
+
+  for (let i = 1; i <= Math.ceil(totalRows / rowsPerPage); i++) {
     pageNums.push(i);
   }
 
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  }
+
   const changeBtnColor = index => {
-    setActiveBtnColor(index); 
-  };
-  
+    setActiveBtnColor(index);
+  }
+
+  const nextBtn = () => {
+    setCurrentPage(currentPage + 1);
+
+    if (currentPage + 1 > maxPageNumLimit) {
+      setmaxPageNumLimit(maxPageNumLimit + pageNumLimit);
+      setminPageNumLimit(minPageNumLimit + pageNumLimit);
+    }
+  }
+
+  const prevBtn = () => {
+    setCurrentPage(currentPage - 1);
+
+    if ((currentPage - 1) % pageNumLimit == 0) {
+      setmaxPageNumLimit(maxPageNumLimit - pageNumLimit);
+      setminPageNumLimit(minPageNumLimit - pageNumLimit);
+    }
+  }
+
   return (
     <div className='pagination'>
-      {<button className="prev-btn" onClick={() => {props.prevBtn(); changeBtnColor(props.currentPage-2);}} disabled={props.currentPage == pageNums[0] ? true : false}>Prev</button>}
+      {<button className="prev-btn" onClick={() => { prevBtn(); changeBtnColor(currentPage - 2); }} disabled={currentPage == pageNums[0] ? true : false}>Prev</button>}
 
       {
         pageNums.map((number, index) => (
-          (number <= props.maxPageNumLimit  && number > props.minPageNumLimit) ?
-            (<button key={index} onClick={() => {props.paginate(number); changeBtnColor(index);}} className={`page-link ${activeBtnColor === index ? "active" : ""}`}>{number}</button>)
-            :  (null)
+          (number <= maxPageNumLimit && number > minPageNumLimit) ?
+            (<button key={index} onClick={() => { paginate(number); changeBtnColor(index); }} className={`page-link ${activeBtnColor === index ? "active" : ""}`}>{number}</button>)
+            : (null)
         ))
       }
-      <button className="next-btn" onClick={() => {props.nextBtn(); changeBtnColor(props.currentPage);}} disabled={props.currentPage == pageNums[pageNums.length - 1] ? true : false}>Next</button>
+      <button className="next-btn" onClick={() => { nextBtn(); changeBtnColor(currentPage); }} disabled={currentPage == pageNums[pageNums.length - 1] ? true : false}>Next</button>
     </div>
   );
 };
