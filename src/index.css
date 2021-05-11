@@ -1,28 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif
 }
 
 body {
-  background-color: #a5bacf;
+  background-color: #f2f2f2;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
-
 
 /* ==================================================
                     Crypto Coin Table
 ================================================== */
 
 h1 {
-  color: blue;
+  color: rgb(88, 144, 184);
   text-align: center;
   padding: 10px 25px;
-  border: 2px solid blue;
+  border: 2px solid rgb(88, 144, 184);
   border-radius: 30px;
   width: -webkit-max-content;
   width: -moz-max-content;
@@ -37,20 +36,31 @@ h1 {
   font-size: 22px;
 }
 
-.search-box{
+.search-box {
   max-width: 300px;
   margin-left: auto;
   margin-right: auto;
+  display: -webkit-box;
   display: flex;
+  -webkit-box-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
   align-items: center;
+  margin-bottom: 20px;
 }
 
-input{
+input {
   width: 260px;
   outline: none;
   padding: 5px 10px;
   font-size: 18px;
+  background-color: rgb(216, 222, 226);
+  border: 2px solid rgb(152, 194, 221);
+  border-radius: 10px;
+}
+
+input:focus {
+  border: 2px solid rgb(113, 152, 179);
 }
 
 .box {
@@ -58,12 +68,18 @@ input{
   max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
-  padding: 0px 10px 10px 10px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 20px;
 }
 
 table {
   border-collapse: collapse;
   width: 100%;
+}
+
+th {
+  background-color: rgb(113, 152, 179);
 }
 
 th,
@@ -76,6 +92,14 @@ td {
   height: 70px;
 }
 
+.row:nth-child(even) {
+  background-color: #eaeaea;
+}
+
+.row:hover {
+  background-color: #cacaca;
+}
+
 .head {
   font-weight: bold;
 }
@@ -83,11 +107,6 @@ td {
 .coin-id {
   padding: 10px;
   font-weight: bold;
-  border-bottom: 2px solid red;
-}
-
-.coin-img {
-  border-bottom: 2px solid red;
 }
 
 .coin-img img {
@@ -106,7 +125,6 @@ td {
 .coin-name,
 .coin-24h {
   overflow-wrap: break-word;
-  border-bottom: 2px solid red;
 }
 
 .coin-24h {
@@ -196,7 +214,6 @@ button:disabled {
 .coin-volume-head,
 .coin-circulation-head {
   overflow-wrap: break-word;
-  border-bottom: 2px solid red;
   font-weight: bold;
 }
 
@@ -259,7 +276,7 @@ button:disabled {
 ================================================== */
 
 .view-code {
-  width: 120px;
+  width: 140px;
   height: 40px;
   background-color: black;
   display: -webkit-box;
@@ -272,6 +289,7 @@ button:disabled {
   border-radius: 10px;
   text-decoration: none;
   margin: 0 auto 20px auto;
+  padding: 5px 8px;
 }
 
 .view-code img {
